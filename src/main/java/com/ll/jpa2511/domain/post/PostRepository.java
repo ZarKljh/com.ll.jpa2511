@@ -17,4 +17,7 @@ public interface PostRepository extends JpaRepository<Post, Long> {
     /* 데이터를 누군가 수정하고 있을 때에는 데이터를 읽을 수 없게 한다*/
     @Lock(LockModeType.PESSIMISTIC_READ)
     Optional<Post> findWithShareLockById(Long id);
+
+    @Lock(LockModeType.PESSIMISTIC_WRITE)
+    Optional<Post> findWithWriteLockById(Long id);
 }

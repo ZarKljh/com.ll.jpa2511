@@ -29,4 +29,9 @@ public class PostController {
     public List<Post> findByUsername(@PathVariable("username") String username) {
         return postService.findByUsername(username);
     }
+    @GetMapping("/findWithWriteLockById/{id}")
+    public Post findWithWriteLockById(@PathVariable Long id) {
+        return postService.findWithWriteLockById(id).orElse(null);
+    }
+
 }

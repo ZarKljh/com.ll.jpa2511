@@ -40,4 +40,8 @@ public class PostService {
 
         return postRepository.findWithShareLockById(id);
     }
+
+    public Optional<Post> findWithWriteLockById(Long id) {
+        return postRepository.findWithWriteLockById(id);
+    }
 }
